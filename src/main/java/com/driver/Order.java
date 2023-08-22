@@ -6,11 +6,9 @@ public class Order {
     private int deliveryTime;
 
     public Order(String id, String deliveryTime) {
-         this.id=id;
-         int dt=Integer.parseInt(deliveryTime);
-         int h=dt/60,m=dt%60;
-         String DT=String.format("%02d:%02d",h,m);
-         this.deliveryTime=Integer.parseInt(DT);
+        this.id=id;
+        int time = Integer.parseInt(deliveryTime.substring(0,2))*60+Integer.parseInt(deliveryTime.substring(3));
+        this.deliveryTime=time;
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
     }
